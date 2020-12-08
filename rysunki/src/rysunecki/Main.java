@@ -4,12 +4,11 @@ import java.util.Random;
 
 public class Main {
 
-	  public static void main(String[] args) {
-		  int w = 900; //30 * 30
-		  int e = 144; //12 * 12 //promien
-		  double pi;
-		  int suma1 = 0;
-		  int total = 50000;
+	public static void main(String[] args) {
+		  int w = 2;
+		  int e = 1; //promien
+		  int suma = 0;
+		  int total = 1000;
 
 		  StdDraw.setCanvasSize(w, w);
 		  StdDraw.setScale(-w / 2, w / 2);
@@ -20,22 +19,21 @@ public class Main {
           for (int i = 0; i <= total; i++) {
         	  int x = r.nextInt(w) - w / 2;
         	  int y = r.nextInt(w) - w / 2;        	  
-        	 if (x * x + y * y < e * e) {
+        	 if (x * x + y * y <= e * e) {
         		 StdDraw.setPenColor(StdDraw.DARK_GRAY);
-        		 suma1++;
+        		 if ((x * x + y * y) <= e) { suma++;
+                 }
         	 }
         	 else {
         		 StdDraw.setPenColor(StdDraw.CYAN);
         		 }
         	 StdDraw.point(x, y);
-        	 if (x * x + y * y <= 1) {
-        		pi = 4. * (suma1 / total);
+          }
+        	double pi = 4. * suma / total;
         		System.out.println(pi);
         	 }
           } 
          
           
-          
-      }
-	}
+         
 
